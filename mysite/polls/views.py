@@ -73,9 +73,11 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
 
-def owner(request):
-    contex = """
+def owner(request,name):
+    contex = f"""
     <h1>Hello, world. a2a8f8c8 is the polls index.</h1>
-    <p><a href="http://mehrannkh1992.pythonanywhere.com/polls/">Answer to the Ultimate Question</a></p>
+    <p><a href="http://mehrannkh1992.pythonanywhere.com/polls/">Answer to the Ultimate Question  {name}</a></p>
     """
     return HttpResponse(contex)
+def empty(request):
+    return HttpResponse("""<p><a href="http://mehrannkh1992.pythonanywhere.com/polls/">Answer to the Ultimate Question</a></p>""")

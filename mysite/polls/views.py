@@ -74,9 +74,11 @@ def vote(request, question_id):
 
 
 def owner(request):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/detail.html", {"question": question})
-
-    
+    latest_question_list = Question.objects.order_by("-pub_date")[:5]
+    template = loader.get_template("polls/index.html")
+    context = {
+        "latest_question_list": latest_question_list,
+    }
+    return HttpResponse(template.render(context, request))
 def empty(request):
     return HttpResponse("""<p><a href="http://mehrannkh1992.pythonanywhere.com/polls/">Answer to the Ultimate Question</a></p>""")

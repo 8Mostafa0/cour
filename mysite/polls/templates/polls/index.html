@@ -1,3 +1,7 @@
+
+    <h1>Hello, world. a2a8f8c8 is the polls index.</h1>
+    <p><a href="http://mehrannkh1992.pythonanywhere.com/polls/">Answer to the Ultimate Question  </a></p>
+
 {% load static %}
 {% if latest_question_list %}
 <ul>
@@ -7,4 +11,11 @@
 </ul>
 {% else %}
 <p>No polls are available.</p>
+<form method="POST">
+
+    <button onclick="call_counter('http://www.yahoo.com', 999);">
+        Vote
+    </button>
+</form>
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
 {% endif %}

@@ -1,5 +1,8 @@
 {% load static %}
 
+<button onclick="call_counter('http://www.yahoo.com', 999);">
+    Vote
+</button>
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 {% if latest_question_list %}
     <ul>

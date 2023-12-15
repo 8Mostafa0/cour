@@ -74,10 +74,9 @@ def vote(request, question_id):
 
 
 def owner(request):
-    contex = """
-    <h1>Hello, world. a2a8f8c8 is the polls index.</h1>
-    <p><a href="http://mehrannkh1992.pythonanywhere.com/polls/">Answer to the Ultimate Question  </a></p>
-    """
-    return HttpResponse(contex)
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, "polls/detail.html", {"question": question})
+
+    
 def empty(request):
     return HttpResponse("""<p><a href="http://mehrannkh1992.pythonanywhere.com/polls/">Answer to the Ultimate Question</a></p>""")

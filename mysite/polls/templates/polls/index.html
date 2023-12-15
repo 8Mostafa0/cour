@@ -1,15 +1,10 @@
 {% load static %}
-
-<button onclick="call_counter('http://www.yahoo.com', 999);">
-    Vote
-</button>
-<link rel="stylesheet" href="{% static 'polls/style.css' %}">
 {% if latest_question_list %}
-    <ul>
+<ul>
     {% for question in latest_question_list %}
     <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
     {% endfor %}
-    </ul>
+</ul>
 {% else %}
-    <p>No polls are available.</p>
+<p>No polls are available.</p>
 {% endif %}
